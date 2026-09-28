@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Manthan Patel | About</title>
+
+    <link rel="stylesheet" href="style.css">
+    <div class="hire-button-container">
+    <button class="hover-btn">Hire Me</button>
+</div>
+
+<style>
+    .hire-button-container {
+        position: fixed;
+        right: 25px;
+        bottom: 25px;
+        z-index: 1000;
+    }
+
+    .hover-btn {
+        position: relative;
+        overflow: hidden;
+
+        padding: 10px 20px;
+
+        background: #450a0a;
+        color: #f87171;
+
+        border: 1px solid #f87171;
+        border-bottom: 4px solid #f87171;
+        border-radius: 6px;
+
+        font-size: 16px;
+        font-weight: 500;
+
+        cursor: pointer;
+        outline: none;
+
+        transition: all 0.3s ease;
+    }
+
+    .hover-btn::before {
+        content: "";
+
+        position: absolute;
+        top: -150%;
+        left: 0;
+
+        width: 320px;
+        height: 5px;
+
+        background: #f87171;
+        border-radius: 6px;
+
+        opacity: 0.5;
+
+        box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.3);
+
+        transition: top 0.5s ease;
+
+        pointer-events: none;
+    }
+
+    .hover-btn:hover {
+        filter: brightness(1.5);
+        border-top: 4px solid #f87171;
+        border-bottom: 1px solid #f87171;
+    }
+
+    .hover-btn:hover::before {
+        top: 150%;
+    }
+
+    .hover-btn:active {
+        opacity: 0.75;
+    }
+</style>
+
+</head>
+
+
+<body>
+
+
+    <header>
+
+        <img src="My Pic.png" alt="Manthan Patel">
+
+        <div class="header-text">
+
+            <h1>Manthan Patel</h1>
+
+            <p class="subtitle">
+                Student of Engineering | EC | Available for Internship
+            </p>
+
+        </div>
+
+
+        <nav>
+
+            <a href="index.html">Home</a>
+
+            <a href="about.html">About</a>
+
+            <a href="skills.html">Skills</a>
+
+            <a href="projects.html">Projects</a>
+
+            <a href="contact.html">Contact</a>
+
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <section>
+
+            <h2>About Me</h2>
+
+            <p>
+                I am an Electronics and Communication Engineering student
+                interested in technology, software development and embedded
+                systems.
+            </p>
+
+        </section>
+
+
+        <section>
+
+            <h2>Education</h2>
+
+            <p>
+                I am pursuing engineering in Electronics and Communication.
+                My academic learning includes digital systems, communication
+                systems, microcontrollers, embedded systems and programming.
+            </p>
+
+        </section>
+
+
+        <section>
+
+            <h2>Interests</h2>
+
+            <ul>
+
+                <li>Web Development</li>
+
+                <li>UI/UX Design</li>
+
+                <li>Digital Technology</li>
+
+                <li>Embedded Systems</li>
+
+                <li>Electronics and Microcontrollers</li>
+
+            </ul>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            Terms & Conditions | Privacy Policy | © 2026 Manthan Patel
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>

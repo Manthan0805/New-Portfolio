@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Manthan Patel — Electronics & Communication Engineering Student, Web Developer, UI/UX Enthusiast and Embedded Systems Learner.">
+<title>Manthan Patel — Portfolio</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root{
+  --bg:#060b0d;
+  --panel:#0b1215;
+  --panel2:#0d1619;
+  --line:#263035;
+  --text:#f2f4f4;
+  --muted:#9aa5a8;
+  --lime:#d9ff4d;
+  --lime2:#b9ed36;
+  --shadow:0 18px 50px rgba(0,0,0,.25);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:
+    radial-gradient(circle at 78% 14%,rgba(214,255,70,.055),transparent 20%),
+    radial-gradient(circle at 8% 55%,rgba(85,180,160,.035),transparent 24%),
+    var(--bg);
+  color:var(--text);
+  line-height:1.55;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+button,input,textarea{font:inherit}
+img{max-width:100%;display:block}
+
+.container{width:min(1180px,92%);margin:auto}
+.section{padding:76px 0;border-bottom:1px solid var(--line)}
+.grid{display:grid;gap:20px}
+.small-label{
+  color:var(--lime);
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.section-title{
+  font-size:clamp(30px,4vw,48px);
+  line-height:1.05;
+  letter-spacing:-.05em;
+}
+.section-title span{color:var(--lime)}
+.muted{color:var(--muted)}
+.rule{height:1px;background:var(--line)}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  height:64px;
+  background:rgba(6,11,13,.82);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--line);
+}
+.nav{
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.logo{
+  font-weight:800;
+  font-size:15px;
+  letter-spacing:-.04em;
+}
+.nav-links{display:flex;gap:38px;align-items:center}
+.nav-links a{
+  color:#c5cbcd;
+  font-size:11px;
+  transition:.25s ease;
+}
+.nav-links a:hover{color:var(--lime)}
+.theme{
+  width:32px;height:32px;border:0;background:transparent;color:white;
+  cursor:pointer;font-size:16px;
+}
+.menu-btn{display:none;background:none;border:0;color:#fff;font-size:23px}
+
+.hero{
+  min-height:590px;
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:45px;
+  align-items:center;
+  padding:78px 0 70px;
+  border-bottom:1px solid var(--line);
+}
+.hero-kicker{color:#9aa5a8;font-size:12px;margin-bottom:3px}
+.hero h1{
+  font-size:clamp(58px,7.3vw,100px);
+  line-height:.92;
+  letter-spacing:-.075em;
+  font-weight:800;
+  margin-bottom:18px;
+}
+.hero h1 span{color:var(--lime)}
+.hero-role{font-size:15px;font-weight:600;margin-bottom:4px}
+.hero-subrole{font-size:11px;color:#d0d5d5}
+.hero-copy{
+  color:#a7b0b2;
+  font-size:11px;
+  max-width:560px;
+  margin:18px 0 25px;
+}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  min-height:40px;
+  padding:0 19px;
+  border:1px solid #7b8587;
+  border-radius:7px;
+  font-size:10px;
+  font-weight:600;
+  transition:.25s ease;
+}
+.btn.primary{
+  background:var(--lime);
+  color:#101500;
+  border-color:var(--lime);
+}
+.btn:hover{transform:translateY(-2px)}
+.btn.primary:hover{background:#e4ff78}
+
+.hero-visual{
+  position:relative;
+  min-height:430px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.photo-frame{
+  width:min(390px,90%);
+  aspect-ratio:1/1.08;
+  border:1px solid #687477;
+  border-radius:18px;
+  transform:rotate(5deg);
+  overflow:hidden;
+  position:relative;
+  background:#10181a;
+  box-shadow:var(--shadow);
+}
+.photo-frame:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg,rgba(217,255,77,.08),transparent 40%);
+  z-index:2;
+  pointer-events:none;
+}
+.photo-frame img{width:100%;height:100%;object-fit:cover}
+.photo-back{
+  position:absolute;
+  width:330px;
+  aspect-ratio:1/1.08;
+  border:1px solid #252f32;
+  border-radius:18px;
+  transform:rotate(-8deg) translate(-24px,20px);
+  background:#0b1113;
+}
+.plus{
+  position:absolute;
+  right:8%;
+  top:8%;
+  color:var(--lime);
+  font-size:24px;
+}
+.keep{
+  position:absolute;
+  right:0;
+  bottom:6%;
+  color:#e9eded;
+  font-family:cursive;
+  font-size:17px;
+  transform:rotate(-9deg);
+}
+.keep:after{
+  content:"";
+  display:block;
+  width:50px;height:1px;
+  background:#bfc7c8;
+  transform:rotate(-18deg) translate(8px,4px);
+}
+.star{
+  position:absolute;
+  color:#7d898b;
+  font-size:18px;
+}
+.s1{left:5%;top:35%}.s2{left:13%;bottom:25%}
+
+.techbar{
+  border-bottom:1px solid var(--line);
+  padding:13px 0;
+}
+.tech{
+  display:flex;gap:25px;align-items:center;flex-wrap:wrap;
+}
+.tech strong{font-size:10px;color:#c9d0d0}
+.tech span{font-size:9px;color:#8e999c}
+
+.two-col{grid-template-columns:1fr 1fr}
+.about-grid{align-items:center}
+.about-text{max-width:480px}
+.about-text p{font-size:12px;color:#a9b3b5;margin:20px 0 24px}
+.about-image{
+  min-height:245px;
+  border:1px solid #344044;
+  border-radius:10px;
+  overflow:hidden;
+  position:relative;
+}
+.about-image img{width:100%;height:100%;object-fit:cover;opacity:.72}
+.about-image:after{
+  content:"";
+  position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(5,10,12,.86),rgba(5,10,12,.18));
+}
+.about-overlay{
+  position:absolute;z-index:2;left:25px;top:30px;
+  color:var(--lime);font-size:19px;line-height:1.18;font-weight:500;
+}
+
+.edu-card{
+  border:1px solid #303b3f;
+  background:linear-gradient(120deg,#0b1215,#0d1518);
+  border-radius:10px;
+  padding:25px;
+  display:grid;
+  grid-template-columns:1.1fr 1.9fr;
+  gap:30px;
+  margin-top:26px;
+}
+.edu-main{display:flex;gap:15px}
+.iconbox{
+  width:36px;height:36px;flex:none;
+  display:grid;place-items:center;
+  border:1px solid #485459;
+  border-radius:50%;
+  color:var(--lime);
+  background:#141d1e;
+}
+.edu-main h3{font-size:14px;line-height:1.3}
+.edu-main p{font-size:10px;color:#a7b0b2;margin-top:12px}
+.study h4{color:var(--lime);font-size:11px;margin-bottom:8px}
+.study ul{columns:2;padding-left:16px;color:#aab3b5;font-size:10px}
+.study li{margin:4px 0}
+
+.services{grid-template-columns:1fr 1fr; margin-top:28px}
+.service{
+  border:1px solid #2d393d;
+  border-radius:9px;
+  padding:21px;
+  display:flex;
+  gap:14px;
+  background:rgba(10,17,19,.75);
+  transition:.25s ease;
+}
+.service:hover{border-color:#647072;transform:translateY(-3px)}
+.service h3{font-size:11px;margin-bottom:7px}
+.service p{font-size:10px;color:#9ea9ab}
+
+.cta{
+  padding:55px 0;
+  display:flex;justify-content:space-between;align-items:center;gap:30px;
+  position:relative;overflow:hidden;
+}
+.cta:before,.cta:after{
+  content:"";position:absolute;width:230px;height:70px;
+  border-top:1px solid #303a3d;border-radius:50%;
+  transform:rotate(-12deg);
+}
+.cta:before{left:-100px;top:20px}.cta:after{right:-80px;bottom:10px}
+.cta h2{font-size:clamp(28px,4vw,42px);line-height:1.02;max-width:500px}
+.cta h2 span{color:var(--lime)}
+
+.skills-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:30px}
+.skills-intro{max-width:500px;color:#a8b1b3;font-size:11px;margin-top:12px}
+.skill-grid{grid-template-columns:repeat(3,1fr)}
+.skill-card{
+  border:1px solid #2e3a3e;border-radius:9px;padding:21px;
+  background:linear-gradient(140deg,#0c1417,#091012);
+  min-height:190px;
+}
+.skill-icon{font-size:23px;color:var(--lime);margin-bottom:13px}
+.skill-card h3{font-size:12px;margin-bottom:10px}
+.skill-card ul{padding-left:17px;color:#a9b2b4;font-size:10px}
+.skill-card li{margin:4px 0}
+
+.projects-head{
+  display:flex;justify-content:space-between;gap:20px;align-items:flex-end;margin-bottom:25px;
+}
+.filters{display:flex;gap:6px;flex-wrap:wrap}
+.filter{
+  background:#0b1215;color:#9da7a9;border:1px solid #263236;
+  border-radius:5px;padding:6px 10px;font-size:8px;cursor:pointer;
+}
+.filter.active,.filter:hover{background:var(--lime);border-color:var(--lime);color:#121700}
+.projects{grid-template-columns:repeat(3,1fr)}
+.project{
+  border:1px solid #2b373b;border-radius:9px;overflow:hidden;
+  background:#0b1215;transition:.25s ease;
+}
+.project:hover{transform:translateY(-4px);border-color:#637073}
+.project-img{height:145px;overflow:hidden;background:#111}
+.project-img img{width:100%;height:100%;object-fit:cover;transition:.5s ease}
+.project:hover img{transform:scale(1.05)}
+.project-body{padding:15px}
+.project-tag{font-size:8px;color:var(--lime);margin-bottom:8px}
+.project h3{font-size:12px;margin-bottom:7px}
+.project p{font-size:9px;color:#99a4a6;min-height:42px}
+.project-link{display:flex;justify-content:space-between;align-items:center;margin-top:14px;font-size:9px;color:#d9dddd}
+.arrow{
+  width:25px;height:25px;border:1px solid #445054;border-radius:50%;
+  display:grid;place-items:center;color:var(--lime)
+}
+.projects-bottom{grid-column:span 2}
+
+.journey-grid{grid-template-columns:1.5fr 1fr}
+.timeline{
+  border:1px solid #2c383c;border-radius:9px;padding:23px;
+  background:#0b1215;
+}
+.timeline-line{
+  position:relative;height:80px;margin-top:15px;
+  display:flex;justify-content:space-between;align-items:center;
+}
+.timeline-line:before{content:"";position:absolute;left:0;right:0;top:39px;height:1px;background:#4a5558}
+.node{position:relative;z-index:2;width:11px;height:11px;border-radius:50%;background:var(--lime);border:3px solid #263036}
+.node-wrap{text-align:center;width:80px}
+.node-wrap span{display:block;color:#a8b2b4;font-size:8px;margin-top:8px}
+.explore{
+  border:1px solid #2c383c;border-radius:9px;padding:23px;background:#0b1215;
+}
+.explore ul{padding-left:16px;margin-top:15px;color:#a7b1b3;font-size:9px}
+.explore li{margin:7px 0}
+.explore li::marker{color:var(--lime)}
+
+.contact-grid{grid-template-columns:1fr 1fr}
+.contact-info h2{font-size:28px;margin-bottom:12px}
+.contact-info p{font-size:10px;color:#a2adaf;max-width:420px}
+.contact-list{margin-top:25px;display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.contact-item{font-size:9px;color:#a7b1b3}
+.contact-item b{display:block;color:#e8ebeb;margin-bottom:3px}
+.form{
+  display:grid;gap:9px;
+}
+.form input,.form textarea{
+  width:100%;border:1px solid #2b383b;background:#0a1114;color:#fff;
+  border-radius:5px;padding:11px;font-size:10px;outline:none;
+}
+.form input:focus,.form textarea:focus{border-color:var(--lime)}
+.form textarea{min-height:100px;resize:vertical}
+.form button{border:0;background:var(--lime);color:#111600;padding:12px;border-radius:5px;font-weight:700;font-size:10px;cursor:pointer}
+
+footer{border-top:1px solid var(--line);padding:18px 0;color:#788386;font-size:9px}
+.footer-inner{display:flex;justify-content:space-between;gap:15px}
+.footer-links{display:flex;gap:25px}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .65s ease,transform .65s ease}
+.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:850px){
+  .nav-links{display:none}
+  .menu-btn{display:block}
+  .hero{grid-template-columns:1fr;padding-top:55px}
+  .hero-visual{min-height:390px}
+  .two-col,.journey-grid,.contact-grid{grid-template-columns:1fr}
+  .edu-card{grid-template-columns:1fr}
+  .skill-grid{grid-template-columns:1fr 1fr}
+  .projects{grid-template-columns:1fr 1fr}
+  .projects-bottom{grid-column:auto}
+}
+@media(max-width:580px){
+  .container{width:min(92%,520px)}
+  .hero h1{font-size:57px}
+  .hero{gap:15px}
+  .hero-visual{min-height:350px}
+  .photo-frame{width:285px}
+  .photo-back{width:245px}
+  .services,.skill-grid,.projects{grid-template-columns:1fr}
+  .skills-head,.projects-head,.cta{align-items:flex-start;flex-direction:column}
+  .cta{padding:45px 0}
+  .study ul{columns:1}
+  .contact-list{grid-template-columns:1fr}
+  .footer-inner{flex-direction:column}
+}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="container nav">
+    <a class="logo" href="#home">MP</a>
+    <nav class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <button class="theme" id="themeBtn" aria-label="Toggle theme">☾</button>
+    </nav>
+    <button class="menu-btn" id="menuBtn">☰</button>
+  </div>
+</header>
+
+<main id="home">
+
+<section class="container hero">
+  <div class="reveal">
+    <div class="hero-kicker">Hi, I'm</div>
+    <h1>Manthan<br><span>Patel</span></h1>
+    <div class="hero-role">Electronics &amp; Communication Engineering Student</div>
+    <div class="hero-subrole">Web Developer &nbsp;|&nbsp; UI/UX Enthusiast &nbsp;|&nbsp; Embedded Systems Learner</div>
+    <p class="hero-copy">
+      I build responsive websites, interactive experiences and practical electronics projects
+      while continuously learning and exploring new technologies.
+    </p>
+    <div class="actions">
+      <a class="btn primary" href="#projects">View My Projects <b>→</b></a>
+      <a class="btn" href="#contact">Contact Me</a>
+    </div>
+  </div>
+
+  <div class="hero-visual reveal">
+    <div class="photo-back"></div>
+    <div class="photo-frame">
+      <!-- Replace this image URL with your own portrait -->
+      <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=85" alt="Profile">
+    </div>
+    <div class="plus">+</div>
+    <div class="star s1">✦</div>
+    <div class="star s2">✧</div>
+    <div class="keep">Keep<br>Building...</div>
+  </div>
+</section>
+
+<div class="techbar">
+  <div class="container tech">
+    <strong>● &nbsp; TECH STACK</strong>
+    <span>HTML</span><span>CSS</span><span>JavaScript</span><span>React</span>
+    <span>Next.js</span><span>Tailwind</span><span>Git</span><span>GitHub</span>
+    <span>Figma</span><span>STM32</span><span>Arduino</span><span>MATLAB</span>
+  </div>
+</div>
+
+<section class="section" id="about">
+  <div class="container">
+    <div class="two-col about-grid grid reveal">
+      <div class="about-text">
+        <div class="small-label">01</div>
+        <h2 class="section-title">About <span>Me</span></h2>
+        <p>
+          I am an Electronics and Communication Engineering student with a strong interest
+          in web development, modern user interfaces and electronics. I enjoy learning by
+          building practical projects and experimenting with new technologies.
+        </p>
+        <a class="btn" href="#education">Learn More →</a>
+      </div>
+      <div class="about-image">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=85" alt="Coding workspace">
+        <div class="about-overlay">Design<br>Code<br>Build<br>Repeat<br><span>✦</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="education">
+  <div class="container reveal">
+    <div class="small-label">02</div>
+    <h2 class="section-title">Education</h2>
+
+    <div class="edu-card">
+      <div class="edu-main">
+        <div class="iconbox">▣</div>
+        <div>
+          <h3>B.E. in Electronics &amp;<br>Communication Engineering</h3>
+          <p>Engineering Student<br>Gujarat, India</p>
+        </div>
+      </div>
+      <div class="study">
+        <h4>Core Areas of Study</h4>
+        <ul>
+          <li>Digital System Design</li>
+          <li>Communication Systems</li>
+          <li>Microcontrollers</li>
+          <li>Embedded Systems</li>
+          <li>VLSI</li>
+          <li>Antenna &amp; Wave Propagation</li>
+          <li>Control Systems</li>
+          <li>Electromagnetics</li>
+          <li>PCB Design</li>
+          <li>Probability &amp; Statistics</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container reveal">
+    <div class="small-label">03</div>
+    <h2 class="section-title">What I <span>Do</span></h2>
+
+    <div class="services grid">
+      <article class="service">
+        <div class="iconbox">⌘</div>
+        <div><h3>Web Development</h3><p>Building responsive and modern websites using HTML, CSS, JavaScript and modern frameworks.</p></div>
+      </article>
+      <article class="service">
+        <div class="iconbox">◈</div>
+        <div><h3>UI/UX Design</h3><p>Creating clean, user-friendly interfaces with modern layouts, animations and responsive design.</p></div>
+      </article>
+      <article class="service">
+        <div class="iconbox">▤</div>
+        <div><h3>E-commerce Development</h3><p>Developing online stores and product-based websites using WordPress and WooCommerce.</p></div>
+      </article>
+      <article class="service">
+        <div class="iconbox">◉</div>
+        <div><h3>Electronics &amp; Embedded Systems</h3><p>Working with microcontrollers, circuit simulation, sensors, motors and embedded-system projects.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="container cta reveal">
+  <div>
+    <h2>Let's build<br><span>something great</span><br>together.</h2>
+  </div>
+  <a class="btn primary" href="#contact">Contact Me →</a>
+</section>
+
+<section class="section" id="skills">
+  <div class="container reveal">
+    <div class="skills-head">
+      <div>
+        <div class="small-label">04</div>
+        <h2 class="section-title">My <span>Skills</span></h2>
+        <p class="skills-intro">A mix of programming, development and electronics — with a constant drive to learn more.</p>
+      </div>
+    </div>
+
+    <div class="skill-grid grid">
+      <article class="skill-card">
+        <div class="skill-icon">&lt;/&gt;</div>
+        <h3>Web Development</h3>
+        <ul><li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>Responsive Design</li><li>Git &amp; GitHub</li></ul>
+      </article>
+      <article class="skill-card">
+        <div class="skill-icon">⚙</div>
+        <h3>Frameworks &amp; Tools</h3>
+        <ul><li>React (learning)</li><li>Next.js (learning)</li><li>Tailwind CSS</li><li>Figma</li><li>VS Code</li></ul>
+      </article>
+      <article class="skill-card">
+        <div class="skill-icon">◉</div>
+        <h3>UI/UX</h3>
+        <ul><li>Modern UI Design</li><li>Responsive Layouts</li><li>Animations</li><li>Wireframing</li><li>User Research</li></ul>
+      </article>
+      <article class="skill-card">
+        <div class="skill-icon">▣</div>
+        <h3>Electronics &amp; Embedded</h3>
+        <ul><li>STM32</li><li>ARM</li><li>AVR</li><li>Embedded C</li><li>Circuit Design</li><li>Proteus / Keil</li></ul>
+      </article>
+      <article class="skill-card">
+        <div class="skill-icon">▱</div>
+        <h3>Software &amp; Others</h3>
+        <ul><li>C / C++</li><li>Python (basic)</li><li>MATLAB</li><li>MS Office</li><li>Git / GitHub</li></ul>
+      </article>
+      <article class="skill-card">
+        <div class="skill-icon">🛒</div>
+        <h3>CMS / E-commerce</h3>
+        <ul><li>WordPress</li><li>WooCommerce</li><li>Website Management</li><li>E-commerce Setup</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="projects">
+  <div class="container reveal">
+    <div class="projects-head">
+      <div>
+        <div class="small-label">05</div>
+        <h2 class="section-title">Featured <span>Projects</span></h2>
+        <p class="skills-intro">Real projects. Practical solutions. Continuous learning.</p>
+      </div>
+      <div class="filters">
+        <button class="filter active" data-filter="all">All</button>
+        <button class="filter" data-filter="web">Web</button>
+        <button class="filter" data-filter="ui">UI/UX</button>
+        <button class="filter" data-filter="ecommerce">E-commerce</button>
+        <button class="filter" data-filter="electronics">Electronics</button>
+      </div>
+    </div>
+
+    <div class="projects grid">
+      <article class="project" data-category="web">
+        <div class="project-img"><img src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=900&q=80" alt=""></div>
+        <div class="project-body"><div class="project-tag">AI / Web Development</div><h3>WebForge AI</h3><p>An AI-powered website-generation concept that lets users create websites from natural-language prompts.</p><div class="project-link">View Project → <span class="arrow">↗</span></div></div>
+      </article>
+
+      <article class="project" data-category="ui">
+        <div class="project-img"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=900&q=80" alt=""></div>
+        <div class="project-body"><div class="project-tag">Fitness / E-commerce</div><h3>Gym Flex Fitness</h3><p>A modern fitness website with premium UI, smooth animations and interactive sections.</p><div class="project-link">View Project → <span class="arrow">↗</span></div></div>
+      </article>
+
+      <article class="project" data-category="ecommerce">
+        <div class="project-img"><img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=900&q=80" alt=""></div>
+        <div class="project-body"><div class="project-tag">E-commerce</div><h3>Green Fashion Studio</h3><p>Online fashion store with product catalog, cart and secure checkout experience.</p><div class="project-link">View Project → <span class="arrow">↗</span></div></div>
+      </article>
+
+      <article class="project" data-category="ecommerce">
+        <div class="project-img"><img src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1200&q=80" alt=""></div>
+        <div class="project-body"><div class="project-tag">Restaurant / Cafe</div><h3>Café 18.19</h3><p>AI-powered cafe website with menu, online ordering, table booking and payment integration.</p><div class="project-link">View Project → <span class="arrow">↗</span></div></div>
+      </article>
+
+      <article class="project" data-category="electronics">
+        <div class="project-img"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80" alt=""></div>
+        <div class="project-body"><div class="project-tag">Embedded Systems</div><h3>STM32 Stepper Motor</h3><p>Microcontroller-based project to control a stepper motor using STM32 with driver circuitry.</p><div class="project-link">View Project → <span class="arrow">↗</span></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="journey-grid grid reveal">
+      <div class="timeline">
+        <div class="small-label">06</div>
+        <h3>My Learning Journey</h3>
+        <p class="muted" style="font-size:9px">A timeline of my journey from basics to building real projects.</p>
+        <div class="timeline-line">
+          <div class="node-wrap"><i class="node"></i><span>HTML &amp; CSS</span></div>
+          <div class="node-wrap"><i class="node"></i><span>JavaScript</span></div>
+          <div class="node-wrap"><i class="node"></i><span>Responsive Web</span></div>
+          <div class="node-wrap"><i class="node"></i><span>Git &amp; GitHub</span></div>
+          <div class="node-wrap"><i class="node"></i><span>React</span></div>
+        </div>
+      </div>
+      <div class="explore">
+        <div class="small-label">07</div>
+        <h3>Currently Exploring</h3>
+        <p class="muted" style="font-size:9px">Technologies I'm learning and excited about.</p>
+        <ul>
+          <li>Advanced JavaScript</li>
+          <li>React &amp; Next.js</li>
+          <li>TypeScript</li>
+          <li>Tailwind CSS</li>
+          <li>GSAP Animations</li>
+          <li>Three.js / 3D Web</li>
+          <li>AI-powered Websites</li>
+          <li>IoT &amp; Automation</li>
+          <li>Embedded Systems</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="two-col grid reveal">
+      <div>
+        <div class="small-label">08</div>
+        <h2 class="section-title">Career <span>Objective</span></h2>
+        <p class="muted" style="font-size:11px;margin-top:16px;max-width:510px">
+          I am looking for opportunities where I can gain practical industry experience,
+          contribute to meaningful projects and continue developing my skills in web development,
+          software and electronics.
+        </p>
+      </div>
+      <div class="skill-card" style="min-height:160px">
+        <div class="skill-icon">↗</div>
+        <h3>Open to Opportunities</h3>
+        <p class="muted" style="font-size:10px">Internships, freelance projects, collaborations and entry-level opportunities.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="container">
+    <div class="contact-grid grid reveal">
+      <div class="contact-info">
+        <div class="small-label">09</div>
+        <h2>Get In <span style="color:var(--lime)">Touch</span></h2>
+        <p>Let's connect, collaborate, discuss projects or opportunities and build something useful together.</p>
+        <div class="contact-list">
+          <div class="contact-item"><b>Email</b>your@email.com</div>
+          <div class="contact-item"><b>GitHub</b>github.com/yourusername</div>
+          <div class="contact-item"><b>Phone</b>+91 XXXXX XXXXX</div>
+          <div class="contact-item"><b>LinkedIn</b>linkedin.com/in/yourusername</div>
+        </div>
+      </div>
+
+      <form class="form" id="contactForm">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <input type="text" placeholder="Subject">
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div>MP</div>
+    <div>© <span id="year"></span> Manthan Patel</div>
+    <div class="footer-links">
+      <a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const menuBtn = document.getElementById('menuBtn');
+const navLinks = document.querySelector('.nav-links');
+
+menuBtn.addEventListener('click', () => {
+  const open = navLinks.style.display === 'flex';
+  navLinks.style.display = open ? '' : 'flex';
+  if(!open){
+    navLinks.style.position='absolute';
+    navLinks.style.top='64px';
+    navLinks.style.left='0';
+    navLinks.style.right='0';
+    navLinks.style.padding='20px';
+    navLinks.style.background='rgba(6,11,13,.97)';
+    navLinks.style.flexDirection='column';
+    navLinks.style.gap='18px';
+    navLinks.style.borderBottom='1px solid #263035';
+  }
+});
+
+document.querySelectorAll('.nav-links a').forEach(a=>{
+  a.addEventListener('click',()=>{
+    if(innerWidth<=850) navLinks.style.display='';
+  });
+});
+
+document.getElementById('themeBtn').addEventListener('click',()=>{
+  document.body.classList.toggle('light');
+});
+
+document.querySelectorAll('.filter').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.filter').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter=btn.dataset.filter;
+    document.querySelectorAll('.project').forEach(card=>{
+      card.style.display=(filter==='all'||card.dataset.category===filter)?'block':'none';
+    });
+  });
+});
+
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting) entry.target.classList.add('visible');
+  });
+},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+document.getElementById('contactForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  alert('Thanks! Please connect the form to your email service/backend to receive messages.');
+});
+
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
